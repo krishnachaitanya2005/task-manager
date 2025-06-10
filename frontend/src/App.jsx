@@ -14,17 +14,25 @@ function App() {
 
 	const createOrUpdateTask = async () => {
 		if (editingId) {
-			await axios.put(`http://localhost:5000/api/tasks/${editingId}`, form);
+			await axios.put(
+				`https://task-manager-gjss.onrender.com/api/tasks/${editingId}`,
+				form
+			);
 			setEditingId(null);
 		} else {
-			await axios.post("http://localhost:5000/api/tasks", form);
+			await axios.post(
+				"https://task-manager-gjss.onrender.com/api/tasks",
+				form
+			);
 		}
 		setForm({ title: "", description: "" });
 		fetchTasks();
 	};
 
 	const deleteTask = async (id) => {
-		await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+		await axios.delete(
+			`https://task-manager-gjss.onrender.com/api/tasks/${id}`
+		);
 		fetchTasks();
 	};
 
